@@ -1,0 +1,53 @@
+{
+  "name": "Hassan Hai Brand System",
+  "version": "1.0",
+  "repository": "hassan-aiml/brand",
+
+  "colors": {
+    "cream":    "#F1EFE9",
+    "rust":     "#C0542A",
+    "gold":     "#C9AA6F",
+    "charcoal": "#2C2C2A",
+    "teal":     "#0F6E56",
+    "gray": {
+      "100": "#F1EFE9",
+      "200": "#D3D1C7",
+      "300": "#B4B2A9",
+      "400": "#888780",
+      "500": "#5F5E5A",
+      "600": "#444441",
+      "700": "#2C2C2A"
+    },
+    "semantic": {
+      "background":      "#F1EFE9",
+      "backgroundDark":  "#2C2C2A",
+      "backgroundCard":  "#FFFFFF",
+      "textPrimary":     "#2C2C2A",
+      "textMuted":       "#888780",
+      "border":          "#D3D1C7",
+      "accent":          "#C0542A",
+      "positive":        "#0F6E56",
+      "warningBg":       "#FAEEDA",
+      "warningText":     "#633806",
+      "warningBorder":   "#BA7517",
+      "successBg":       "#E1F5EE",
+      "successText":     "#085041",
+      "successBorder":   "#9FE1CB"
+    }
+  },
+
+  "fonts": {
+    "heading": "Georgia, 'Times New Roman', serif",
+    "body":    "Arial, Helvetica, sans-serif",
+    "mono":    "'Courier New', Courier, monospace"
+  },
+
+  "usage": {
+    "cream":    "Page background, card alternating rows",
+    "rust":     "Primary CTA buttons, active tab indicators, highlights",
+    "gold":     "Secondary accents, table headers on dark, labels",
+    "charcoal": "Top nav, sidebar, dark surfaces, primary text",
+    "teal":     "Success states, savings callouts, positive indicators",
+    "note":     "Always set button and tab text colors with explicit hex inline — never rely on CSS class inheritance in sandboxed or embedded environments"
+  }
+}

@@ -1,0 +1,334 @@
+/*
+ * Hassan Hai — Brand System
+ * Version: 1.1
+ * Repository: hassan-aiml/brand
+ *
+ * Typeface: Inter (Google Fonts) — load in index.html:
+ *   <link rel="preconnect" href="https://fonts.googleapis.com">
+ *   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ *   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+ *
+ * Usage:
+ *   import './hassan_brand.css'   (React)
+ *   @import 'hassan_brand.css';  (CSS)
+ *
+ * CRITICAL: Always set button and tab text colors with explicit
+ * inline hex values — never rely on CSS inheritance for
+ * interactive elements in sandboxed or embedded environments.
+ */
+
+:root {
+
+  /* ── Core palette ─────────────────────────────────────── */
+  --brand-cream:    #F1EFE9;   /* Page background            */
+  --brand-rust:     #C0542A;   /* Primary CTA, active states */
+  --brand-gold:     #C9AA6F;   /* Secondary accent, labels   */
+  --brand-charcoal: #2C2C2A;   /* Nav, dark surfaces, text   */
+  --brand-teal:     #0F6E56;   /* Success, savings, positive */
+
+  /* ── Gray scale ───────────────────────────────────────── */
+  --gray-100: #F1EFE9;
+  --gray-200: #D3D1C7;
+  --gray-300: #B4B2A9;
+  --gray-400: #888780;
+  --gray-500: #5F5E5A;
+  --gray-600: #444441;
+  --gray-700: #2C2C2A;
+
+  /* ── Semantic aliases ─────────────────────────────────── */
+  --color-bg:             var(--brand-cream);
+  --color-bg-dark:        var(--brand-charcoal);
+  --color-bg-card:        #FFFFFF;
+  --color-text-primary:   var(--brand-charcoal);
+  --color-text-muted:     var(--gray-400);
+  --color-border:         var(--gray-200);
+  --color-accent:         var(--brand-rust);
+  --color-positive:       var(--brand-teal);
+  --color-warning-bg:     #FAEEDA;
+  --color-warning-text:   #633806;
+  --color-warning-border: #BA7517;
+  --color-success-bg:     #E1F5EE;
+  --color-success-text:   #085041;
+  --color-success-border: #9FE1CB;
+
+  /* ── Typography — Inter only ──────────────────────────── */
+  --font-heading: 'Inter', Arial, Helvetica, sans-serif;
+  --font-body:    'Inter', Arial, Helvetica, sans-serif;
+  --font-mono:    'Courier New', Courier, monospace;
+
+  /* ── Type scale ───────────────────────────────────────── */
+  --text-xs:   11px;   /* Table headers, card labels, badges  */
+  --text-sm:   12px;   /* Form labels, flag text, body small  */
+  --text-base: 13px;   /* Body, table content, buttons, tabs  */
+  --text-md:   14px;   /* Section headings                    */
+  --text-lg:   16px;   /* Sub-page titles                     */
+  --text-xl:   18px;                                          
+  --text-2xl:  20px;   /* Page titles                         */
+  --text-3xl:  22px;   /* Venue title on results              */
+  --text-4xl:  30px;   /* Summary card values                 */
+
+  /* ── Font weights ─────────────────────────────────────── */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold: 600;
+
+  /* ── Spacing ──────────────────────────────────────────── */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  12px;
+  --space-lg:  16px;
+  --space-xl:  24px;
+  --space-2xl: 32px;
+
+  /* ── Borders & radius ─────────────────────────────────── */
+  --radius-sm:      4px;
+  --radius-md:      6px;
+  --radius-lg:      8px;
+  --border-default: 1px solid var(--gray-200);
+  --border-light:   0.5px solid var(--gray-200);
+}
+
+/* ── Base resets ──────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #2C2C2A;
+  background-color: #F1EFE9;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 { font-size: var(--text-3xl); font-weight: var(--weight-semibold); color: var(--brand-charcoal); line-height: 1.2; }
+h2 { font-size: var(--text-2xl); font-weight: var(--weight-semibold); color: var(--brand-charcoal); line-height: 1.2; }
+h3 { font-size: var(--text-md);  font-weight: var(--weight-medium);   color: var(--brand-charcoal); line-height: 1.3; }
+
+code, pre, .mono { font-family: 'Courier New', Courier, monospace; }
+
+/* ── Utility classes ──────────────────────────────────────── */
+.text-rust     { color: var(--brand-rust);     }
+.text-teal     { color: var(--brand-teal);     }
+.text-gold     { color: var(--brand-gold);     }
+.text-charcoal { color: var(--brand-charcoal); }
+.text-muted    { color: var(--gray-400);       }
+
+.bg-cream    { background-color: var(--brand-cream);    }
+.bg-charcoal { background-color: var(--brand-charcoal); }
+.bg-white    { background-color: #FFFFFF;               }
+
+/* ── Badges ───────────────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+.badge-dark  { background: var(--brand-charcoal); color: var(--brand-gold);          }
+.badge-light { background: #FFFFFF; color: var(--gray-600); border: var(--border-default); }
+.badge-teal  { background: var(--color-success-bg); color: var(--color-success-text); }
+.badge-warn  { background: var(--color-warning-bg); color: var(--color-warning-text); }
+.badge-urllc { background: #E1F5EE; color: #085041; }
+.badge-embb  { background: #FAEEDA; color: #633806; }
+.badge-mmtc  { background: #F1EFE9; color: #5F5E5A; border: 0.5px solid #D3D1C7; }
+
+/* ── Cards ────────────────────────────────────────────────── */
+.card {
+  background: #FFFFFF;
+  border: var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+.card-highlight { border-color: var(--brand-rust); border-width: 1.5px; }
+.card-teal      { border-color: var(--brand-teal); border-width: 1.5px; }
+.card-rust-left { border-left: 3px solid var(--brand-rust); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
+.card-teal-left { border-left: 3px solid var(--brand-teal); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
+
+/* ── Summary metric cards ─────────────────────────────────── */
+.metric-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-height: 28px;
+  line-height: 1.4;
+}
+.metric-value {
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-semibold);
+  color: var(--brand-charcoal);
+  margin-top: 8px;
+  line-height: 1;
+}
+.metric-sub {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--brand-gold);
+  margin-top: 6px;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+/* IMPORTANT: always set color inline with explicit hex on
+   <button> elements in sandboxed/embedded environments.
+   These classes are a fallback only.                        */
+.btn {
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.btn-primary { background-color: #C0542A; color: #FFFFFF; border: none; }
+.btn-outline { background-color: #FFFFFF; color: #2C2C2A; border: 1.5px solid #888780; }
+.btn-ghost   { background-color: transparent; color: #2C2C2A; border: none; }
+
+/* ── Tables ───────────────────────────────────────────────── */
+.brand-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-base);
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: var(--border-default);
+  table-layout: fixed;
+}
+.brand-table th {
+  background: var(--brand-charcoal);
+  color: var(--brand-gold);
+  padding: 9px 12px;
+  text-align: left;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.brand-table td {
+  padding: 9px 12px;
+  border-bottom: 0.5px solid var(--brand-cream);
+  color: var(--brand-charcoal);
+}
+.brand-table tr:last-child td { border-bottom: none; }
+.brand-table tr:nth-child(even) td { background: #FAFAF8; }
+
+/* ── Warning banner ───────────────────────────────────────── */
+.warn-banner {
+  background: var(--color-warning-bg);
+  border-left: 3px solid var(--color-warning-border);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 12px 16px;
+  display: flex;
+  gap: 10px;
+}
+.warn-title { font-size: var(--text-base); font-weight: var(--weight-medium); color: var(--color-warning-text); }
+.warn-body  { font-size: var(--text-sm); color: #854F0B; margin-top: 3px; line-height: 1.5; }
+
+/* ── Success / savings banner ─────────────────────────────── */
+.success-banner {
+  background: var(--color-success-bg);
+  border: 0.5px solid var(--color-success-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+}
+
+/* ── Nav (dark) ───────────────────────────────────────────── */
+.nav-dark {
+  background: var(--brand-charcoal);
+  display: flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 24px;
+}
+.nav-brand {
+  font-size: 13px;
+  font-weight: var(--weight-medium);
+  color: #F1EFE9;
+  line-height: 1.3;
+  margin-right: 40px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+/* ── Sidebar (dark) ───────────────────────────────────────── */
+.sidebar-dark {
+  background: var(--brand-charcoal);
+  width: 190px;
+  min-width: 190px;
+  padding: 18px 0;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-item-active   { background: rgba(192,84,42,0.18); color: var(--brand-gold); border-radius: var(--radius-md); }
+.sidebar-item-inactive { color: var(--gray-400); }
+
+/* ── Flag / note items ────────────────────────────────────── */
+.flag-item {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  padding: 9px 12px;
+  background: #FFFFFF;
+  border: 0.5px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+.flag-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand-teal);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* ── Form elements ────────────────────────────────────────── */
+.form-label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--gray-500);
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+.form-input {
+  padding: 8px 10px;
+  border: var(--border-default);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  color: var(--brand-charcoal);
+  background: white;
+  width: 100%;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--brand-rust);
+}
+
+/* ── Footer / MRC bar ─────────────────────────────────────── */
+.mrc-footer {
+  background: var(--brand-cream);
+  border: var(--border-default);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: 11px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
